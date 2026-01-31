@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Interactive Image Gallery</title>
+
+  <style>
+   body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  background-image: url("https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/avengers-logo-marvel-iphone-x-ejdb7n3pi3hv36y4.jpg");
+  background-size:1400px;        
+  background-position: center;  
+  background-repeat: no-repeat;
+  background-attachment:scroll; 
+
+
+}
+    h1 {
+      text-align: center;
+      padding: 20px;
+      font-family: AvengeanceHeroic Avenger;
+      color:#D9D9D9;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /* Hover Animation */
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 35px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Avengers Assemble..!!!</h1>
+
+<div class="gallery">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/blue-eyed-captain-america-worthy-zfqab83swhfbe4gf.jpg" onclick="openLightbox(this.src)">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/ironman.avif" onclick="openLightbox(this.src)">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/widow.jpg" onclick="openLightbox(this.src)">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/thor.jpg" onclick="openLightbox(this.src)">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/Hawkeye.jpg" onclick="openLightbox(this.src)">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/spider-man-red-web-marvel-iphone-x-vulkb4dvt5p30vju.jpg" onclick="openLightbox(this.src)">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/Doctor-Strange-trailer-image.webp" onclick="openLightbox(this.src)">
+  <img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/hulk.jpg" onclick="openLightbox(this.src)">
+<img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/panther.webp" onclick="openLightbox(this.src)">
+<img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/ision.jpg" onclick="openLightbox(this.src)">
+<img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/ant%20man.webp" onclick="openLightbox(this.src)">
+<img src="https://uploads.onecompiler.io/43wnsdn3b/44c7bfe2y/TomHiddlestonLoki.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+  setTimeout(showNextImage, 2000); 
+
+</script>
+
+</body>
+</html>
